@@ -1,5 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+### Installation
+1. Clone the repo:
+
+   ```sh
+   git clone https://github.com/SkylabMak/LOOTERZ.git
+2. Clone the repo:
+
+   ```sh
+    cd looterz
+3. Clone the repo:
+
+   ```sh
+    npm install
 ## Getting Started
 
 First, run the development server:
