@@ -1,3 +1,7 @@
+#next Docs
+https://nextjs.org/docs
+(Using app router)
+
 # github command
 
 git init
