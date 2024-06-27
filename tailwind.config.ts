@@ -28,7 +28,10 @@ const config: Config = {
         error:'#FE6768',
         succes:'#6CB928',
         border:'#D1C492'
-      }
+      },
+      fontFamily: {
+        sans: ['Paytone One', 'Helvetica', 'Arial', 'sans-serif'],
+      },
     },
   },
   plugins: [],
