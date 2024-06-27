@@ -31,3 +31,6 @@ git checkout new-branch-name
 
 # git create and switch command
 git checkout -b new-branch-name 
+
+# git merge remote branch
+git merge origin/main

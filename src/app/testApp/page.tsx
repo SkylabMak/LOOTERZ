@@ -46,7 +46,9 @@ function TestApp() {
           <button onClick={calculateSum}>Calculate Sum</button>
           <p>{message}</p>
         </div>
+        <div className='w-10 h-10 bg-primary'></div>
       </header>
+      
     </div>
   );
 }
