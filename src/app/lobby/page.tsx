@@ -11,7 +11,7 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
 
 
   return (
-    <>
+    <div className="font-[35px]">
     {/* <div className="bg-slate-700 min-h-screen min-w-screen overflow-hidden"> */}
     {/* <div className="bg-gradient-to-br from-[#B456BC] to-[#852E8C] min-h-screen min-w-screen overflow-hidden"> */}
     <div className="bg-gradient-to-b from-[#1B131D] to-[#120D17] min-h-screen min-w-screen overflow-hidden">
@@ -22,8 +22,8 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
         </div>
       </div>
   
-      <div className="mid-container h-auto md:h-[30rem] mx-4 md:mx-14 overflow-hidden">
-        <div className="flex flex-col lg:flex-row justify-around">
+      <div className="mid-container h-auto md:h-[33rem] mx-4 md:mx-14 overflow-hidden ">
+        <div className="flex flex-col lg:flex-row justify-around items-center">
           <div className="m-4 md:m-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-">
             <EachPlayer name="Mickie2K" />
             <EachPlayer name="Mickie2K" />
@@ -47,7 +47,7 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
 
 
     
-  </>
+  </div>
   
   );
 };

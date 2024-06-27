@@ -16,7 +16,7 @@ const EachPlayer: React.FunctionComponent<IEachPlayerProps> = (props) => {
       <div className="flex flex-col justify-between items-center h-3/5 w-full p-3">
         <p className="text-white">{name}</p>
 
-        <div className="w-4/5 bg-gray-500 text-center rounded-2xl mb-1 p-1">Waiting</div>
+        <div className="w-4/5 bg-gray-500 text-center rounded-2xl mb-1 p-1 cursor-pointer hover:bg-gray-700 transition ">Waiting</div>
       </div>
     </div>
   );
