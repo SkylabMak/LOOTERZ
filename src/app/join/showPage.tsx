@@ -2,9 +2,11 @@
 import { ShowRoom } from '@/typings';
 import { CiTimer } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
+import PlayerCount from "./playerCount"
+import { useEffect } from 'react';
 
-
-const JoinShowPage = async ({ data }: { data: ShowRoom[] }) => {
+const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
+    useEffect(() =>{console.log(data)},[])
     return (
         <div className='w-full '>
             <p>
@@ -22,8 +24,8 @@ const JoinShowPage = async ({ data }: { data: ShowRoom[] }) => {
                                 <span className='ml-2 mr-4'> :   {showroom.time}</span>
                                 {showroom.privateStatus && <CiLock />}
                             </div>
-                            <p>Number of Players: {showroom.NumberPlayers}</p>
-                            <p>Current Players: {showroom.currentPlayes}</p>
+                            <PlayerCount count={showroom.NumberPlayers} current={showroom.currentPlayes} />
+
                         </div>
                         <div className='flex-none ml-4 '>
                             <button>Join</button>

@@ -10,8 +10,8 @@ async function getData() {
     if (!response.ok) {
         throw new Error('Failed to fetch data');
     }
-
     const data: ShowRoom[] = await response.json();
+    console.log(data)
     return data;
 }
 

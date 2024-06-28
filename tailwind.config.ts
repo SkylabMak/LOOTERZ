@@ -27,7 +27,8 @@ const config: Config = {
         AccentSword:'#ECF5E9',
         error:'#FE6768',
         succes:'#6CB928',
-        border:'#D1C492'
+        border:'#D1C492',
+        systemGray:'#48484A'
       },
       fontFamily: {
         sans: ['Paytone One', 'Helvetica', 'Arial', 'sans-serif'],

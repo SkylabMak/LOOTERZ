@@ -15,6 +15,20 @@ export const testData: ShowRoom[] = [{
     currentPlayes:3,
     time:3,
     privateStatus:true,
+},{
+  roomName: "Mek03",
+  roomID: "01",
+  NumberPlayers: 9,
+  currentPlayes:8,
+  time:8,
+  privateStatus:false,
+},{
+  roomName: "Mek04",
+  roomID: "02",
+  NumberPlayers: 4,
+  currentPlayes:3,
+  time:3,
+  privateStatus:true,
 }]
 
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
