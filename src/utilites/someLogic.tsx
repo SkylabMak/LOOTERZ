@@ -1,4 +1,6 @@
 // utilities.js
+'use server'
+
 export function greet(name : string) {
     return `Hello, ${name}!`;
   }

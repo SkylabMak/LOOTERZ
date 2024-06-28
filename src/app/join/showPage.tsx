@@ -1,43 +1,77 @@
 "use client";
+import React from "react";
 import { ShowRoom } from '@/typings';
-import { CiTimer } from "react-icons/ci";
-import { CiLock } from "react-icons/ci";
-import { IoPersonOutline } from "react-icons/io5";
-import PlayerCount from "./playerCount"
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Header from '@/components/navbar/header';
+import RoomCard from '@/components/roomCard/roomCard';
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
+import { Button } from '@nextui-org/button';
+
 
 const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
-    useEffect(() => { console.log(data) }, [])
+    const [open, setOpen] = useState(false);
+    const [id, setId] = useState("");
+    const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+
+    const findNameRoom = (roomID: string) => {
+        return data.find((room: ShowRoom) => (room.roomID === roomID))?.roomName;
+    }
+
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
+
+    useEffect(() => {
+        console.log(open + " " + id);
+    }, [open, id]);
+
     return (
-        <div className='w-full '>
-            <p>
-                <span className='text-white	font-bold'>Whereas disregard and contempt for human rights have resulted</span>
-            </p>
-            <p></p>
+        <div>
+            <Header />
             <div className='grid grid-cols-3 gap-8 text-white font-light tracking-wide'>
                 {data.map((showroom: ShowRoom) => (
-                    <div className='bg-black/[.15] flex items-center p-4 '
-                        key={showroom.roomID} >
-                        <div className='grow grid grid-rows-3 gap-2'>
-                            <span className='text-xl'>{showroom.roomName}</span >
-                            <div className='flex items-center '>
-                                <IoPersonOutline />
-                                <span className='ml-2 mr-4'> :   {showroom.currentPlayes}/{showroom.NumberPlayers}</span>
-                                <CiTimer />
-                                <span className='ml-2 mr-4'> :   {showroom.time}</span>
-                                {showroom.privateStatus && <CiLock />}
-                            </div>
-                            <PlayerCount count={showroom.NumberPlayers} current={showroom.currentPlayes} />
+                    <RoomCard
+                        key={showroom.roomID}
+                        showroom={showroom}
+                        setId={setId}
+                        onOpen={onOpen}
 
-                        </div>
-                        <div className='flex-none ml-4 '>
-                            <button className='border-solid border-2 border-border p-2 rounded-full'>Join</button>
-                        </div>
-                    </div>
+                    />
                 ))}
             </div>
-
+            <Modal
+                size="5xl"
+                isOpen={isOpen}
+                onClose={onClose}
+                placement="center"
+                backdrop="blur"
+                className='modal-backdrop '
+                hideCloseButton={true}
+                // backdrop="static"
+                // shadow="none"
+                style={{ backgroundColor: 'transparent', boxShadow: 'none' }}
+            >
+                <ModalContent className='text-white flex flex-col justify-center items-center '>
+                    <ModalHeader className="flex flex-col gap-1 ">
+                        Enter Password
+                    </ModalHeader>
+                    <ModalBody>
+                        enter password for enter the " {findNameRoom(id)} " room
+                        <input id="roomPassword" type="password"
+                            className="bg-[#18181B] p-1 border-solid border-2 border-slate-400 rounded-lg" />
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="danger" variant="light" onPress={onClose}>
+                            Close
+                        </Button>
+                        <Button color="primary" onPress={onClose}>
+                            Join
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
         </div>
     );
 }
+
 export default JoinShowPage;

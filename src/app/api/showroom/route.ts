@@ -37,16 +37,16 @@ export const testData: ShowRoom[] = [
 ];
 
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
-    return new Response(JSON.stringify(testData), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-  // export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  //   if (req.method === 'GET') {
-  //     res.status(200).json(testData);
-  //   } else {
-  //     res.setHeader('Allow', ['GET']);
-  //     res.status(405).end(`Method ${req.method} Not Allowed`);
-  //   }
-  // }
+  return new Response(JSON.stringify(testData), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+// export default function handler(req: NextApiRequest, res: NextApiResponse) {
+//   if (req.method === 'GET') {
+//     res.status(200).json(testData);
+//   } else {
+//     res.setHeader('Allow', ['GET']);
+//     res.status(405).end(`Method ${req.method} Not Allowed`);
+//   }
+// }
