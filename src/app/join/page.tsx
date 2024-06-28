@@ -6,12 +6,14 @@ import JoinShowPage from './showPage';
 async function getData() {
 
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const response = await fetch(`${baseUrl}/api/showroom`);
+    const response = await fetch(`${baseUrl}/api/showroom`, {
+        cache: 'no-store'  // Ensures the request doesn't use cached data
+    });
     if (!response.ok) {
         throw new Error('Failed to fetch data');
     }
     const data: ShowRoom[] = await response.json();
-    console.log(data)
+    // console.log(data)
     return data;
 }
 

@@ -2,11 +2,12 @@
 import { ShowRoom } from '@/typings';
 import { CiTimer } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
+import { IoPersonOutline } from "react-icons/io5";
 import PlayerCount from "./playerCount"
 import { useEffect } from 'react';
 
 const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
-    useEffect(() =>{console.log(data)},[])
+    useEffect(() => { console.log(data) }, [])
     return (
         <div className='w-full '>
             <p>
@@ -17,9 +18,11 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
                 {data.map((showroom: ShowRoom) => (
                     <div className='bg-black/[.15] flex items-center p-4 '
                         key={showroom.roomID} >
-                        <div className='grow'>
+                        <div className='grow grid grid-rows-3 gap-2'>
                             <span className='text-xl'>{showroom.roomName}</span >
                             <div className='flex items-center '>
+                                <IoPersonOutline />
+                                <span className='ml-2 mr-4'> :   {showroom.currentPlayes}/{showroom.NumberPlayers}</span>
                                 <CiTimer />
                                 <span className='ml-2 mr-4'> :   {showroom.time}</span>
                                 {showroom.privateStatus && <CiLock />}
@@ -28,7 +31,7 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
 
                         </div>
                         <div className='flex-none ml-4 '>
-                            <button>Join</button>
+                            <button className='border-solid border-2 border-border p-2 rounded-full'>Join</button>
                         </div>
                     </div>
                 ))}
