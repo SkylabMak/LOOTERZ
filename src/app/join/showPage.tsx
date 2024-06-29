@@ -6,10 +6,11 @@ import Header from '@/components/navbar/header';
 import RoomCard from '@/components/roomCard/roomCard';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
 import { Button } from '@nextui-org/button';
+import CreateRoomBtn from "@/components/createRoomBtn";
 
 
 const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
-    const [open, setOpen] = useState(false);
+    // const [open, setOpen] = useState(false);
     const [id, setId] = useState("");
     const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
@@ -17,35 +18,44 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
         return data.find((room: ShowRoom) => (room.roomID === roomID))?.roomName;
     }
 
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
+    // useEffect(() => {
+    //     console.log(data);
+    // }, [data]);
 
-    useEffect(() => {
-        console.log(open + " " + id);
-    }, [open, id]);
+    // useEffect(() => {
+    //     console.log( id);
+    // }, [ id]);
 
     return (
-        <div>
-            <Header />
-            <div className='grid grid-cols-3 gap-8 text-white font-light tracking-wide'>
-                {data.map((showroom: ShowRoom) => (
-                    <RoomCard
-                        key={showroom.roomID}
-                        showroom={showroom}
-                        setId={setId}
-                        onOpen={onOpen}
+        <div className="relative min-h-min pb-[80px]">
+            {/* <Header /> */}
+            <div className="flex justify-center mb-4 ">
+                <div className='
+            grid text-white font-light tracking-wide w-5/6
+            grid-cols-1 gap-3 
+            sm:w-9/12	
+            md:grid-cols-2 md:gap-8 
+            xl:grid-cols-3 xl:gap-8
+            '>
+                    {data.map((showroom: ShowRoom) => (
+                        <RoomCard
+                            key={showroom.roomID}
+                            showroom={showroom}
+                            setId={setId}
+                            onOpen={onOpen}
 
-                    />
-                ))}
+                        />
+                    ))}
+                </div>
             </div>
+
             <Modal
                 size="5xl"
                 isOpen={isOpen}
                 onClose={onClose}
                 placement="center"
                 backdrop="blur"
-                className='modal-backdrop '
+                className='modal-backdrop'
                 hideCloseButton={true}
                 // backdrop="static"
                 // shadow="none"
@@ -70,6 +80,7 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
                     </ModalFooter>
                 </ModalContent>
             </Modal>
+            <CreateRoomBtn />
         </div>
     );
 }

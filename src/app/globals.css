@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
@@ -46,6 +48,12 @@ body {
         rgb(var(--background-end-rgb))
     ) rgb(var(--background-start-rgb)); 
     */
+    /* width: calc(100vw - var(--scrollbar-width)); */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
 }
 
 /* Additional custom styles */

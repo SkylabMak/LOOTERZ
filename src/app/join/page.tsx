@@ -18,7 +18,7 @@ async function getData() {
 }
 
 const JoinPage = async () => {
-    const data : ShowRoom[] = await getData();
+    const data: ShowRoom[] = await getData();
 
     return (
         <JoinShowPage data={data} />

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
     <html lang="en" className='dark'>
-      <body className={paytone_One.className + ' bg-[#1E1E1E]'}>
+      <body className={paytone_One.className + ' bg-[#1E1E1E] min-h-screen'}>
         <Providers>
           {children}
         </Providers>
