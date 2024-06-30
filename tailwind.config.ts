@@ -30,10 +30,13 @@ const config: Config = {
         error:'#FE6768',
         succes:'#6CB928',
         border:'#D1C492',
-        systemGray:'#48484A'
+        systemGray:'#48484A',
+        gradientStart:'#1B121C',
+        gradientEnd:'#110d17',
       },
       fontFamily: {
-        sans: ['Paytone One', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Nunito sans', 'Helvetica', 'Arial', 'sans-serif'],
+        paytone: ["Paytone One", "sans-serif"]
       },
     },
   },

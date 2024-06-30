@@ -7,7 +7,7 @@ const link = [
 		label: "Home",
 	},
 	{
-		href: "/rooms",
+		href: "/join",
 		label: "Rooms",
 	},
 	{
