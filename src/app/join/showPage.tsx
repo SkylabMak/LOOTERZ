@@ -87,7 +87,7 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
 							placeholder="Password"
 						/>
 					</ModalBody>
-					<ModalFooter className>
+					<ModalFooter>
 						<Button
 							color="default"
 							className="flex w-[231px] h-[54px] items-center justify-center gap-2.5 px-8 py-5 relative rounded-full "

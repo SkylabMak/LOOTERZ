@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { nunito, paytone_One } from "@/utilites/font";
+import { nunito } from "@/utilites/font";
 import Header from "@/components/navbar/header";
 import "./globals.css";
 import { Providers } from "./providers";
