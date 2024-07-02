@@ -1,23 +1,3 @@
-// import * as React from "react";
-// import EachSetting from "./eachSetting";
-
-// interface ISettingProps {}
-
-// const Setting: React.FunctionComponent<ISettingProps> = (props) => {
-//   return (
-//     <>
-//         <p className="text-center">Settings</p>
-//       <div>
-//         <EachSetting settingName={"Room Name"} inputType={"text"}></EachSetting>
-//         <EachSetting settingName={"Room Name"} inputType={"text"}></EachSetting>
-//         <EachSetting settingName={"Room Name"} inputType={"text"}></EachSetting>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Setting;
-
 import * as React from "react";
 import EachSetting from "./eachSetting";
 
