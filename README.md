@@ -1,3 +1,5 @@
+branch นี้คือที่เราเขียนแก้เกม แต่ตอน push มันไม่ได้อยู่ใน branch พอเปลี่ยน branch ข้อมูลหาย พึ่งเอากลับมาได้ แต่ยังไม่ได้่เช็คว่า Code ถูกมั้ย
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ### Installation
