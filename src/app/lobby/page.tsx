@@ -20,8 +20,8 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
       </div>
 
       <div className="mid-container mx-4 md:mx-14">
-        <div className="flex flex-col justify-around sm:flex-col sm:items-center lg:flex-row lg:items-start xl:items-center ">
-          <div className=" gap-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="flex flex-col justify-around ite sm:flex-col sm:items-center lg:flex-row lg:items-start xl:items-center ">
+          <div className=" gap-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">
             <EachPlayer name="Mickie2K" />
             <EachPlayer name="Mickie2K" />
             <EachPlayer name="Mickie2K" />
@@ -30,7 +30,7 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
             <EachPlayer name="Garaiiiiii" />
           </div>
 
-          <div className=" lg:text-lg mt-11 lg:mt-0">
+          <div className=" lg:text-lg mt-11 lg:mt-0  w-auto">
             <div className="bg-[#150E18] rounded-xl p-4 shadow-lg shadow-gray-500 h-auto w-full">
               <p className="text-center">Settings</p>
               <div className="space-y-3">
