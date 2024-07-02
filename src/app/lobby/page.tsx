@@ -30,7 +30,9 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
             <EachPlayer name="Garaiiiiii" />
           </div>
 
-          <div className=" lg:text-lg mt-11 lg:mt-0  w-auto">
+          <div className=" lg:text-lg mt-11 lg:mt-0  w-auto sm:w-3/4 lg:w-1/3">
+
+          {/* <div className=" lg:text-lg mt-11 lg:mt-0  w-auto "> */}
             <div className="bg-[#150E18] rounded-xl p-4 shadow-lg shadow-gray-500 h-auto w-full">
               <p className="text-center">Settings</p>
               <div className="space-y-3">
