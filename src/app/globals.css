@@ -1,33 +1,69 @@
+/* @import '@nextui-org/react/dist/styles.css'; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --backgroundcolor: rgba(0, 0, 0, 0.15);
+    --blackforinput: rgba(24, 24, 27, 1);
+    --success: rgba(108, 185, 40, 1);
+    --systemgray-3: rgba(84, 84, 86, 1);
+    --variable-collection-accent: rgba(133, 46, 140, 1);
+    --variable-collection-accent2: rgba(210, 61, 97, 1);
+    --variable-collection-black: rgba(19, 19, 19, 1);
+    --variable-collection-border: rgba(209, 196, 146, 1);
+    --variable-collection-error: rgba(254, 103, 104, 1);
+    --variable-collection-primary: rgba(251, 199, 1, 1);
+    --variable-collection-secondary-yellow: rgba(254, 238, 179, 1);
+    --variable-collection-secondary2: rgba(84, 43, 21, 1);
+    --variable-collection-secondary3: rgba(143, 71, 23, 1);
+    --variable-collection-secondary4: rgba(39, 19, 12, 1);
+    --variable-collection-seconday1: rgba(108, 37, 42, 1);
+    --variable-collection-success: rgba(97, 233, 128, 1);
+    --variable-collection-sword: rgba(236, 245, 233, 1);
+    --variable-collection-systemgray: rgba(72, 72, 74, 1);
+    --variable-collection-white: rgba(255, 255, 255, 1);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    /* Uncomment and use these if needed
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+    ) rgb(var(--background-start-rgb)); 
+    */
+    /* width: calc(100vw - var(--scrollbar-width)); */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Additional custom styles */
+.modal-backdrop::backdrop {
+    background-color: rgba(0, 0, 255, 0.2); /* Adjust to desired blue */
+    backdrop-filter: blur(5px);
   }
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
 }

@@ -6,6 +6,9 @@ import OwnerRoomLabel from "@/components/lobby/ownerRoomLabel";
 import MyUser from "@/components/lobby/myUser";
 import EachPlayer from "@/components/lobby/eachPlayer";
 import EachSetting from "@/components/lobby/eachSetting";
+import Setting from "@/components/lobby/setting";
+import { AiFillAccountBook, AiFillBehanceSquare } from "react-icons/ai";
+import looterCard from "../../utilites/looterzCard.png";
 
 interface ILobbyProps {}
 
@@ -40,6 +43,7 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
                 <EachSetting settingName="Max Players" inputType="number" />
                 <EachSetting settingName="Time/Turns" inputType="number" />
                 <EachSetting settingName="Password" inputType="password" />
+                
               </div>
 
               <div className="two-button flex flex-row justify-between items-center mt-4">
@@ -60,6 +64,8 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
           Start Game
         </button>
       </div>
+
+  
     </div>
   );
 };
