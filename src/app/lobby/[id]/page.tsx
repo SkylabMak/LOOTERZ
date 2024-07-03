@@ -9,6 +9,8 @@ import EachPlayer from "../../../components/lobby/eachPlayer";
 import EachSetting from "../../../components/lobby/eachSetting";
 import Setting from "../../../components/lobby/setting";
 import looterCard from "../..utilites/looterzCard.png";
+import { AiFillAlert } from "react-icons/ai";
+
 
 interface ILobbyProps {
   // ownerName : string;
@@ -17,7 +19,6 @@ interface ILobbyProps {
 const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
   const [lobby, setLobby] = useState<any>([]);
   const [loading, setLoading] = useState(true);
-  const [usersInRoom, setUesrsInRoom] = useState([]);
   const pathname = usePathname();
 
   const fetchRoomId = async () => {
@@ -26,7 +27,6 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
     const datas = await res.json();
 
     setLobby(datas);
-    // setUesrsInRoom((prev) => [...prev]);
     setLoading(false);
     
   };
@@ -37,16 +37,7 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
     ))
   }
   
-  // console.log(lobby);
-  
-  // setUesrsInRoom((prevUser) => [...prevUser]);
-
-
-  // useEffect(() => {
-  //   fetchRoomId();
-  // }, []);
-
-  useEffect(() => {
+   useEffect(() => {
     fetchRoomId();
   }, []);
 
@@ -58,12 +49,12 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
     <div className="h-screen min-w-screen overflow-y-auto bg-gradient-to-b from-[#1B131D] to-[#120D17]">
       <div className="top-container">
         <div className="flex flex-col justify-around items-center my-5 sm:flex-row sm:space-y-0 space-y-2">
-          <OwnerRoomLabel ownerName={lobby.ownerName} />
+          <OwnerRoomLabel lobby={lobby} />
           <MyUser myName="Mickie2K" />
         </div>
       </div>
 
-      <div className="mid-container mx-4 md:mx-14">
+      <div className="mid-container mx-4 md:mx-14 my-20">
         <div className="flex flex-col justify-around ite sm:flex-col sm:items-center lg:flex-row lg:items-start xl:items-center ">
           <div className=" gap-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ">
           { renderUsersInRoom(lobby.usersInRoom)}
@@ -93,7 +84,7 @@ const Lobby: React.FunctionComponent<ILobbyProps> = (props) => {
         </div>
       </div>
 
-      <div className="text-center my-5">
+      <div className="text-center my-5 ">
         <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition">
           Start Game
         </button>
