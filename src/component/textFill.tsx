@@ -1,16 +1,17 @@
 import * as React from 'react';
 
 interface ITextFillProps {
-    name: String;
+    name: string;
+    value: string;
 }
 
 const TextFill: React.FunctionComponent<ITextFillProps> = (props) => {
-    const { name } = props;
+    const { name, value } = props;
     return (
-        <>
+        <div className=" w-full">
             <p>{name}</p>
-            <input className="bg-blue-600 rounded-md text-black" type="text" placeholder="Placeholder" />
-        </>
+            <input style={{background : "#B8B8B8",padding : "20px"}} className="rounded-lg text-white w-full p-[100px]" type={value} placeholder="Placeholder" />
+        </div>
     );
 };
 
