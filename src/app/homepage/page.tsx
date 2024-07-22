@@ -20,7 +20,7 @@ export default function HomePage() {
 					</li>
 					<li className="mb-4 p-9">
 						<Link
-							href="/join"
+							href="/createRoom"
 							className="hover:text-primary hover:text-[42px] ease-in-out duration-100"
 						>
 							CREATE ROOM
