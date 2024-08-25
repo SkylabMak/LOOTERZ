@@ -5,7 +5,7 @@ import cookie from 'cookie';
 import type { RequestHandler } from '@sveltejs/kit';
 
 import { ShowRoom } from "@/typings"
-export const testData: ShowRoom[] = [
+const testData: ShowRoom[] = [
   {
     roomName: "Mek",
     roomID: "01",
