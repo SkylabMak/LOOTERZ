@@ -1,4 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+// import { cookies } from 'next/headers'
+// import cookie from 'cookie';
+import cookie from 'cookie';
+import type { RequestHandler } from '@sveltejs/kit';
 
 import { ShowRoom } from "@/typings"
 export const testData: ShowRoom[] = [
@@ -123,18 +127,63 @@ export const testData: ShowRoom[] = [
     privateStatus: false,
   }
 ];
+// export const GET: RequestHandler = async ({ request }) => {
+//   const headers = new Headers();
+
+//   headers.append('Set-Cookie', cookie.serialize('userID', '1sglksedrn;glksnigr', {
+//     httpOnly: false,
+//     secure: process.env.NODE_ENV === 'production',
+//     maxAge: 60 * 60 * 24 * 7, // 1 week
+//     sameSite: 'lax', // Allows cross-site cookies
+//     path: '/',
+//   }));
+
+//   headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+//   headers.append('Access-Control-Allow-Credentials', 'true');
+//   headers.append('Content-Type', 'application/json');
+
+//   return new Response(JSON.stringify(testData), {
+//     status: 200,
+//     headers,
+//   });
+// };
 
 export async function GET(req: NextApiRequest, res: NextApiResponse) {
+  // cookies().set('name', '')
   return new Response(JSON.stringify(testData), {
     status: 200,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json', 
+      'Access-Control-Allow-Origin': `${process.env.NEXT_PUBLIC_API_BASE_URL}`,
+      'Access-Control-Allow-Credentials': 'true',
+      'Set-Cookie': cookie.serialize('userID', '1sglksedrn;glksnigr', {
+        httpOnly: false,
+        secure: false, // Set to true in production
+        maxAge: 60 * 60 * 24 * 7, // 1 week
+        sameSite: 'strict',
+        path: '/'
+      })
+    },
   });
 }
-// export default function handler(req: NextApiRequest, res: NextApiResponse) {
-//   if (req.method === 'GET') {
-//     res.status(200).json(testData);
-//   } else {
-//     res.setHeader('Allow', ['GET']);
-//     res.status(405).end(`Method ${req.method} Not Allowed`);
-//   }
+// export default async function handler(req: NextApiRequest, res: NextApiResponse<ShowRoom[]>) {
+
+//     // Set a cookie
+//     // cookies().set('name', 'lee')
+//     // res.setHeader('Content-Type', 'application/json')
+//     // res.setHeader('Set-Cookie', cookie.serialize('userID', '123456789', {
+//     //   httpOnly: true,
+//     //   // secure: process.env.NODE_ENV === 'production', // Set to true in production
+//     //   maxAge: 60 * 60 * 24 * 7, // 1 week
+//     //   sameSite: 'strict',
+//     //   // sameSite="None"
+//     // }));
+
+//     // Return the test data as JSON
+//     return res.status(200).json(testData);
+//     // return new Response(JSON.stringify(testData), {
+//     //   status: 200,
+//     //   headers: { 'Content-Type': 'application/json' },
+//     // });
+  
 // }

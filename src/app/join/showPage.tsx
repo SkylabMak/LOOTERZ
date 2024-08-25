@@ -15,19 +15,47 @@ import {
 } from "@nextui-org/modal";
 import { Button } from "@nextui-org/button";
 import CreateRoomBtn from "@/components/createRoomBtn";
+import { useRouter } from 'next/navigation';
 
 const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
 	// const [open, setOpen] = useState(false);
+	const router = useRouter();
 	const [id, setId] = useState("");
+	const [psw, setPsw] = useState("");
 	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
 
 	const findNameRoom = (roomID: string) => {
 		return data.find((room: ShowRoom) => room.roomID === roomID)?.roomName;
 	};
 
-	// useEffect(() => {
-	//     console.log(data);
-	// }, [data]);
+	const handleChangePsw = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+		setPsw(event.target.value);
+	};
+
+	const enter = async () => {
+		const userID = localStorage.getItem("userID")
+		//senTdata to backend
+		const res = { "status": 200 }
+		if (res.status === 200) {
+
+			onClose()
+			setPsw("");
+			router.push('/lobby');
+		}
+		else {
+			// alert.
+		}
+
+	}
+	useEffect(() => {
+		const cookies = document.cookie.split('; ');
+		const userCookie = cookies.find(cookie => cookie.startsWith('userID='));
+		if (userCookie) {
+			const userIDValue = userCookie.split('=')[1];
+			console.log(userIDValue)
+		}
+		console.log(document.cookie)
+	}, []);
 
 	// useEffect(() => {
 	//     console.log( id);
@@ -83,6 +111,8 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
 						<input
 							id="roomPassword"
 							type="password"
+							value={psw}
+							onChange={handleChangePsw}
 							className="bg-[#18181B] p-4 border-solid border-1 border-zinc-700 rounded-lg w-full"
 							placeholder="Password"
 						/>
@@ -100,7 +130,7 @@ const JoinShowPage = ({ data }: { data: ShowRoom[] }) => {
 						</Button>
 						<Button
 							className=" flex w-[231px] h-[54px] items-center justify-center gap-2.5 px-8 py-5 relative rounded-full [background:radial-gradient(50%_50%_at_50%_50%,rgb(255,198.9,0)_0%,rgb(215,134.51,0)_100%)]"
-							onPress={onClose}
+							onPress={enter}
 						>
 							<span className="font-black italic text-xl drop-shadow">
 								JOIN

@@ -2,18 +2,29 @@
 
 import { ShowRoom } from '@/typings';
 import JoinShowPage from './showPage';
+import { cookies } from 'next/headers';
 
 async function getData() {
-
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
     const response = await fetch(`${baseUrl}/api/showroom`, {
-        cache: 'no-store'  // Ensures the request doesn't use cached data
-    });
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+            credentials: 'include'
+        },
+        cache: 'no-store',
+      });
+    const cookieStore = cookies();
+    const userID = cookieStore.get('userID');
+    console.log(userID?.value+" is "+typeof userID?.value )
     if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        // console.log("status is " + response.status)
+        // throw new Error('Failed to fetch data status is ' +response.status);
     }
-    const data: ShowRoom[] = await response.json();
-    // console.log(data)
+    const data: ShowRoom[] =  (response.ok)?await response.json():[]
+    // console.log(response)
+    
+
     return data;
 }
 

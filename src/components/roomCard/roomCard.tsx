@@ -6,6 +6,7 @@ import { CiLock } from "react-icons/ci";
 import { IoPersonOutline } from "react-icons/io5";
 import PlayerCount from "./playerCount";
 import { Dispatch, SetStateAction } from "react";
+import { useRouter } from 'next/navigation';
 
 const RoomCard = ({
 	showroom,
@@ -16,11 +17,16 @@ const RoomCard = ({
 	setId: Dispatch<SetStateAction<string>>;
 	onOpen: () => void;
 }) => {
+	const router = useRouter();
 	// const minSize = 4;
 	const joinRoom = () => {
 		setId(showroom.roomID);
 		if (showroom.privateStatus === true) {
 			onOpen();
+		}
+		else{
+			const userID = localStorage.getItem("userID")
+			router.push('/lobby/2');
 		}
 	};
 	return (
