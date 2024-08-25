@@ -1,11 +1,11 @@
 // utilities.js
 'use server'
 
-export function greet(name : string) {
+export async function greet(name : string) {
     return `Hello, ${name}!`;
   }
   
-  export function addNumbers(a : number, b: number) {
+  export async function addNumbers(a : number, b: number) {
     return a + b;
   }
   
