@@ -7,8 +7,8 @@ export default function HomePage() {
 	};
 
 	return (
-		<main className="relative min-h-min pb-[80px]">
-			<div className="flex justify-center flex-col items-center mt-4">
+		<main className="relative min-h-min h-full">
+			<div className="flex justify-center flex-col items-center mt-4 h-full">
 				<ul className="text-center my-8 font-black italic text-[40px] leading-[40px]">
 					<li className="mb-4 p-9">
 						<Link
@@ -29,6 +29,11 @@ export default function HomePage() {
 				</ul>
 				<div className="w-1/4 h-px" style={stylingLine} />
 				<ul className="text-center my-8 font-bold italic text-xl text-gray-400">
+					<li className=" mb-2 p-4">
+						<Link href="/createName" className="hover:text-gray-100">
+							CHANGE USERNAME
+						</Link>
+					</li>
 					<li className=" mb-2 p-4">
 						<a
 							href="https://www.youtube.com/watch?v=V6NXuW-xaTE"
