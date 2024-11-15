@@ -1,3 +1,4 @@
+import { apiURL } from "@/utilites/const";
 import { paytone_one } from "@/utilites/font";
 const CreateRoomBtn = () => {
 	return (
@@ -10,6 +11,7 @@ const CreateRoomBtn = () => {
 			<button
 				type="button"
 				className="px-10 py-6 bg-gradient-to-b from-[#B456BC] to-[#852E8C] rounded-full"
+				onClick={() => { }}
 			>
 				{" "}
 				<span className={paytone_one.className}>Create a room</span>
